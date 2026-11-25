@@ -45,27 +45,28 @@ body{
   background-size:cover;
   background-repeat:no-repeat;
   background-color:var(--ink);
+  filter:saturate(.78) brightness(.72);
   transition:opacity 1s var(--ease);
 }
 .bg::after{
-  /* 顶部提亮 + 底部压暗，保证文字可读；再叠一层极淡网格，无图时也有质感 */
+  /* 深色蒙层 + 左侧压暗，保证图片可见但文字始终清晰 */
   content:"";
   position:absolute; inset:0;
   background-image:
-    radial-gradient(110% 75% at 16% 0%, rgba(198,161,91,.16), transparent 54%),
-    radial-gradient(90% 65% at 100% 12%, rgba(43,92,136,.20), transparent 62%),
-    linear-gradient(180deg, rgba(5,15,26,.52) 0%, rgba(5,15,26,.80) 45%, rgba(5,15,26,.94) 100%),
+    radial-gradient(110% 75% at 16% 0%, rgba(198,161,91,.10), transparent 52%),
+    linear-gradient(90deg, rgba(5,15,26,.78) 0%, rgba(5,15,26,.50) 45%, rgba(5,15,26,.38) 100%),
+    linear-gradient(180deg, rgba(5,15,26,.55) 0%, rgba(5,15,26,.72) 45%, rgba(5,15,26,.92) 100%),
     linear-gradient(rgba(255,255,255,.024) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.024) 1px, transparent 1px);
   background-size:auto,auto,auto,72px 72px,72px 72px;
   background-position:center;
 }
 
-body[data-page="home"]    .bg{background-image:linear-gradient(160deg,#0a1f31,#050f1a 65%),url("bg-home.jpg");}
-body[data-page="about"]   .bg{background-image:linear-gradient(160deg,#0b2233,#050f1a 70%),url("bg-about.jpg");}
-body[data-page="work"]    .bg{background-image:linear-gradient(160deg,#081a29,#050f1a 70%),url("bg-work.jpg");}
-body[data-page="life"]    .bg{background-image:linear-gradient(160deg,#0a1d2c,#050f1a 70%),url("bg-life.jpg");}
-body[data-page="contact"] .bg{background-image:linear-gradient(160deg,#0a1b2a,#050f1a 72%),url("bg-contact.jpg");}
+body[data-page="home"]    .bg{background-image:url("bg-home.jpg"),linear-gradient(160deg,#0a1f31,#050f1a 65%);}
+body[data-page="about"]   .bg{background-image:url("bg-about.jpg"),linear-gradient(160deg,#0b2233,#050f1a 70%);}
+body[data-page="work"]    .bg{background-image:url("bg-work.jpg"),linear-gradient(160deg,#081a29,#050f1a 70%);}
+body[data-page="life"]    .bg{background-image:url("bg-life.jpg"),linear-gradient(160deg,#0a1d2c,#050f1a 70%);}
+body[data-page="contact"] .bg{background-image:url("bg-contact.jpg"),linear-gradient(160deg,#0a1b2a,#050f1a 72%);}
 
 /* ---------- 顶部导航 ---------- */
 .site-header{
@@ -295,11 +296,13 @@ p{margin:0 0 20px; color:#c8d4e0; font-size:15.5px;}
   display:block; filter:saturate(.92) contrast(1.04);
 }
 .portrait .ph{
-  position:absolute; inset:0; display:flex; flex-direction:column;
-  align-items:center; justify-content:center; gap:10px; text-align:center;
-  color:var(--muted); font-size:12px; letter-spacing:.18em; line-height:1.9;
+  position:absolute; left:0; right:0; bottom:0;
+  display:flex; flex-direction:column; align-items:flex-start; gap:3px;
+  padding:34px 20px 18px;
+  background:linear-gradient(180deg,transparent,rgba(5,15,26,.9) 65%);
+  color:#cfdae5; font-size:11px; letter-spacing:.16em; line-height:1.6;
 }
-.portrait .ph b{color:var(--gold); font-family:var(--serif); font-size:14px; letter-spacing:.24em; font-weight:500;}
+.portrait .ph b{color:var(--gold); font-family:var(--serif); font-size:10.5px; letter-spacing:.3em; font-weight:500;}
 
 /* ---------- 时间线 ---------- */
 .timeline{position:relative; padding-left:28px;}
@@ -381,15 +384,14 @@ p{margin:0 0 20px; color:#c8d4e0; font-size:15.5px;}
 .work .thumb.t5{background-image:url("work-5.jpg"),var(--ph);}
 .work .thumb.t6{background-image:url("work-6.jpg"),var(--ph);}
 
-/* ---------- 生活图集 ---------- */
+/* ---------- 日常图集 ---------- */
 .gallery{
   display:grid;
-  grid-template-columns:repeat(6,1fr);
-  grid-auto-rows:minmax(120px,auto);
-  gap:12px;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
 }
 .gallery .shot{
-  position:relative; overflow:hidden;
+  position:relative; overflow:hidden; aspect-ratio:4/3;
   border:1px solid rgba(233,239,245,.10);
   background-color:#0d2133; background-position:center; background-size:cover;
   transition:transform .6s var(--ease),border-color .6s;
@@ -401,22 +403,9 @@ p{margin:0 0 20px; color:#c8d4e0; font-size:15.5px;}
   transition:opacity .5s;
 }
 .gallery .shot:hover::after{opacity:.45;}
-.g1{grid-column:span 3; grid-row:span 2;}
-.g2{grid-column:span 3; grid-row:span 1;}
-.g3{grid-column:span 3; grid-row:span 1;}
-.g4{grid-column:span 2; grid-row:span 1;}
-.g5{grid-column:span 2; grid-row:span 1;}
-.g6{grid-column:span 2; grid-row:span 2;}
-.g7{grid-column:span 4; grid-row:span 1;}
-.g8{grid-column:span 2; grid-row:span 1;}
 .gallery .g1{background-image:url("life-1.jpg"),var(--ph);}
 .gallery .g2{background-image:url("life-2.jpg"),var(--ph);}
 .gallery .g3{background-image:url("life-3.jpg"),var(--ph);}
-.gallery .g4{background-image:url("life-4.jpg"),var(--ph);}
-.gallery .g5{background-image:url("life-5.jpg"),var(--ph);}
-.gallery .g6{background-image:url("life-6.jpg"),var(--ph);}
-.gallery .g7{background-image:url("life-7.jpg"),var(--ph);}
-.gallery .g8{background-image:url("life-8.jpg"),var(--ph);}
 
 /* ---------- 联系 ---------- */
 .contact-grid{
@@ -484,12 +473,7 @@ p{margin:0 0 20px; color:#c8d4e0; font-size:15.5px;}
   .hero-aside dl{grid-template-columns:1fr 1fr; gap:20px 28px;}
   .split,.contact-grid{grid-template-columns:1fr;}
   .portrait{max-width:420px; aspect-ratio:4/5;}
-  .gallery{grid-template-columns:repeat(4,1fr);}
-  .g1{grid-column:span 4; grid-row:span 2;}
-  .g2,.g3{grid-column:span 2; grid-row:span 1;}
-  .g4,.g5{grid-column:span 2;}
-  .g6{grid-column:span 2; grid-row:span 1;}
-  .g7,.g8{grid-column:span 2; grid-row:span 1;}
+  .gallery{grid-template-columns:repeat(3,1fr);}
   .scroll-hint{display:none;}
 }
 
@@ -518,10 +502,9 @@ p{margin:0 0 20px; color:#c8d4e0; font-size:15.5px;}
   .btn{padding:12px 22px; font-size:12px;}
   .stats{grid-template-columns:1fr 1fr;}
   .stat{padding:22px 20px;}
-  .gallery{grid-template-columns:repeat(2,1fr); grid-auto-rows:140px;}
-  .gallery .shot{grid-column:span 1 !important; grid-row:span 1 !important;}
-  .g1{grid-column:span 2 !important; grid-row:span 2 !important;}
+  .gallery{grid-template-columns:1fr;}
   .info-list li{grid-template-columns:1fr; gap:4px;}
   .footer-inner{flex-direction:column; align-items:flex-start;}
 }
+
 
