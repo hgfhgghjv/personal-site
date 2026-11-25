@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>联系 · YOUR NAME</title>
+<meta name="description" content="与 YOUR NAME 取得联系：邮箱、电话、所在地与合作方式。">
+<link rel="preconnect" href="https://miaoda.feishu.cn" crossorigin>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="contact">
+
+<div class="bg" aria-hidden="true"></div>
+
+<header class="site-header">
+  <a class="brand" href="index.html"><i></i>YOUR NAME<span>个人主页</span></a>
+  <button class="nav-toggle" aria-label="展开导航" aria-expanded="false"><span></span><span></span><span></span></button>
+  <nav class="nav">
+    <a href="index.html">首页</a>
+    <a href="about.html">关于</a>
+    <a href="work.html">作品</a>
+    <a href="life.html">生活</a>
+    <a href="contact.html" class="active">联系</a>
+  </nav>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow reveal">Contact</p>
+      <h1 class="reveal d1">聊聊看</h1>
+      <p class="lead reveal d2" style="max-width:600px;">
+        不管是合作、咨询，还是只想认识一下，都欢迎直接联系。一般 24 小时内回复。
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap contact-grid">
+
+      <div class="reveal">
+        <p class="eyebrow">Direct</p>
+        <h2 style="font-size:clamp(20px,2.4vw,26px); margin-bottom:26px;">直接联系</h2>
+        <ul class="info-list">
+          <li><span>邮箱</span><a href="mailto:hello@example.com">hello@example.com</a></li>
+          <li><span>电话</span><a href="tel:+8613800000000">138 0000 0000</a></li>
+          <li><span>微信</span><b>your_wechat_id</b></li>
+          <li><span>所在</span><b>中国 · 成都</b></li>
+          <li><span>状态</span><b>开放合作洽谈</b></li>
+        </ul>
+
+        <p class="muted" style="font-size:13px; margin-top:24px; line-height:1.9;">
+          提示：以上信息是示例，替换成你自己的联系方式后再上传，公开可见的内容请注意隐私。
+        </p>
+      </div>
+
+      <div class="reveal d2">
+        <p class="eyebrow">Message</p>
+        <h2 style="font-size:clamp(20px,2.4vw,26px); margin-bottom:26px;">留个消息</h2>
+
+        <form class="form" id="contactForm">
+          <div class="field">
+            <label for="name">称呼</label>
+            <input id="name" name="name" type="text" placeholder="怎么称呼你" required>
+          </div>
+          <div class="field">
+            <label for="mail">邮箱或电话</label>
+            <input id="mail" name="mail" type="text" placeholder="方便回复你的方式" required>
+          </div>
+          <div class="field">
+            <label for="msg">想聊的事</label>
+            <textarea id="msg" name="msg" placeholder="简单说下背景和你的期待" required></textarea>
+          </div>
+          <button class="btn btn--gold" type="submit">发送</button>
+          <p class="form-note">静态站不接后端，点击后会唤起你本机的邮件客户端，把内容发到上面的邮箱。</p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>© 2026 YOUR NAME · 个人主页</p>
+    <div class="links">
+      <a href="about.html">关于</a>
+      <a href="work.html">作品</a>
+      <a href="life.html">生活</a>
+      <a href="contact.html">联系</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+<script>
+document.getElementById('contactForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var to = 'hello@example.com'; // 换成你的邮箱
+  var name = document.getElementById('name').value.trim();
+  var mail = document.getElementById('mail').value.trim();
+  var msg = document.getElementById('msg').value.trim();
+  var subject = '来自个人主页的消息 · ' + name;
+  var body = '称呼：' + name + '\n联系方式：' + mail + '\n\n' + msg;
+  window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+});
+</script>
+</body>
+</html>
