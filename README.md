@@ -1,91 +1,96 @@
-# 个人主页 · 多页静态网站
+# 巴蜀辣韵 · 川味火锅底料品牌站
 
-商务稳重风格的五星级个人主页，纯静态（HTML + CSS + 少量原生 JS），可直接部署到 GitHub Pages。
+纯静态站点，无需后端与构建工具。双击 `index.html` 即可本地查看，上传到 GitHub Pages 就是官网。
 
-## 页面结构
+## 页面
 
 | 文件 | 页面 | 内容 |
-| --- | --- | --- |
-| `index.html` | 首页 | 首屏大字、个人定位、三个能力方向 |
-| `about.html` | 关于 | 个人简介、出品照片位、经历时间线、能力条 |
-| `work.html` | 出品 | 3 个案例卡片（含缩略图） |
-| `life.html` | 日常 | 3 张出品图集 + 习惯说明 |
-| `contact.html` | 联系 | 联系方式列表 + 留言表单（唤起邮件客户端） |
-| `assets/style.css` | — | 全站样式（配色、排版、响应式） |
-| `assets/main.js` | — | 导航折叠、滚动入场动效、能力条动画 |
+|---|---|---|
+| `index.html` | 首页 | 首屏主张、四件稳定出品的事、六款代表作预览、出锅实拍 |
+| `work.html` | 产品 | 分 5 组共 24 款，每款配实物图与味型说明（不含规格参数） |
+| `life.html` | 应用 | 串串锅、红汤锅、牛蛙锅三个场景 + 门店常配食材 |
+| `about.html` | 工厂 | 厂区实拍视频（44 秒）、发酵工艺五道工序、原料看得见 |
+| `contact.html` | 合作 | 报样、批发、区域经销、OEM 代工 · 电话/微信 159 0823 5538 · 成都 |
 
-## 背景图片怎么放
+导航顺序统一为：首页 / 产品 / 应用 / 工厂 / 合作。
 
-所有图片都放在 `assets/` 目录，**按下面的文件名命名，直接丢进去就自动生效**，不用改代码：
+## 产品线（24 款）
 
-| 文件名 | 用在哪里 | 建议尺寸 |
-| --- | --- | --- |
-| `bg-home.jpg` | 首页整页背景 | 2000×1200，横向构图 |
-| `bg-about.jpg` | 关于页背景 | 2000×1125 |
-| `bg-work.jpg` | 出品页背景 | 2000×1125 |
-| `bg-life.jpg` | 日常页背景 | 2000×1250 |
-| `bg-contact.jpg` | 联系页背景 | 2000×1125 |
-| `portrait.jpg` | 关于页左侧竖图 | 竖版 4:5，1200×1500 |
-| `work-1.jpg` ~ `work-3.jpg` | 出品缩略图 | 16:10 横图，1200×750 |
-| `life-1.jpg` ~ `life-3.jpg` | 日常图集 | 4:3，1200×850 |
+1. 牛油锅底 6 款：经典、特辣、轻辣、久煮不浑汤、串串香、牛油底料块
+2. 清汤锅底 4 款：番茄、菌汤、金汤、番茄菌汤双拼
+3. 鱼蛙火锅 4 款：麻辣鱼片、金汤鱼片、酸菜鱼、牛蛙底料
+4. 其它产品 4 款：青花椒烤鱼料、麻辣香锅料、干锅小炒料、鲜毛肚（配套食材）
+5. 风味酱 6 款：XO 酱、菌王酱、牛肉酱、沙茶酱、香辣酱、蒜蓉酱
 
-说明：
-- 图片没放之前，页面用深色渐变兜底，不会出现破图或空白块。
-- 背景会自动叠加一层深色遮罩，保证文字始终清晰；原图偏亮也没关系。
-- 想换背景图不换文件名，直接覆盖同名文件即可。
-- 体积控制在单张 500KB 以内，页面加载会更快（可用 WebP 转 JPG 压缩）。
+统一卖点：**发酵工艺 · 久煮不浑汤 · 辣而不烧心**。首页四件事、产品页页头、工厂页第四道工序都落在这一点上。
 
-## 要替换的文案
+产品页不列净含量、装箱和配比数字，报价与参数走线下沟通。
 
-搜这几个占位内容，整段替换成你自己的：
+## 素材来源
 
-- `YOUR NAME` —— 姓名或品牌名（导航、页脚、大标题都有）
-- `把复杂的事情，做成简单的结果` —— 首页一句话定位
-- `hello@example.com` / `138 0000 0000` / `your_wechat_id` —— 联系方式（`contact.html` 与表单脚本里各有一处邮箱）
-- 各页的段落文字、时间线、项目名、数字，都是示例，按实际情况改。
+产品图从这 6 个目录筛选后，重新裁切压缩成 `assets/p01.jpg … p24.jpg`：
 
-> 公开页面上的手机号和住址请谨慎填写，可以只留邮箱或微信。
+- `部分牛油锅底` → p01–p06
+- `部分清汤` → p10（番茄菌汤双拼），p07 番茄沿用旧素材，p08/p09 用旧图
+- `部分鱼蛙火锅` → p11–p14
+- `部分其它产品展示` → p15–p19
+- `部分原材料展示` → `raw-chili.jpg`、`raw-pepper-red.jpg`、`raw-pepper-green.jpg`
+- `食材` → `food-beef.jpg`、`food-beef-cube.jpg`、`food-rumen.jpg`；另有 `show-1.jpg`（牛肉卷，首页图集）
+- `工厂视频.mp4` → `assets/factory-tour.mp4`（720×406，H.264 Main，44 秒，2.2MB，已做 faststart）+ 封面 `factory-poster.jpg`
 
-## 本地预览
+源视频是 HEVC 编码，浏览器兼容性差，必须转 H.264：
 
-直接双击 `index.html` 就能看。想更接近线上环境，可以在本目录执行：
-
-```bash
-python -m http.server 8000
+```
+ffmpeg -i 工厂视频.mp4 -vf scale=720:404 -c:v libx264 -preset slow -crf 29 -pix_fmt yuv420p -movflags +faststart -c:a aac -b:a 56k -ac 1 assets/factory-tour.mp4
 ```
 
-然后浏览器打开 `http://localhost:8000`。
+## 目录
 
-## 部署到 GitHub Pages
+```
+index.html  work.html  life.html  about.html  contact.html
+assets/     style.css  main.js  p01…p24.jpg  show-1…6.jpg  bg-*.jpg  food-*.jpg  raw-*.jpg
+            factory-tour.mp4  factory-poster.jpg
+.nojekyll   README.md
+```
 
-### 方式一：网页上传（最简单，不用装 Git）
+`.nojekyll` 不要删，它保证 `assets` 里的文件被原样发布。
 
-1. 在 GitHub 新建一个仓库，名字随意，比如 `my-site`，可见性选 **Public**（Private 仓库用 Pages 需要付费套餐）。
-2. 进入仓库，点 `Add file` → `Upload files`，把这个文件夹里的**全部文件**拖进去（包括 `assets` 整个目录），提交。
-3. 仓库 `Settings` → 左侧 `Pages` → `Build and deployment` 的 `Source` 选 **Deploy from a branch**，分支选 `main`，目录选 `/ (root)`，保存。
-4. 等 1～2 分钟，访问 `https://<你的用户名>.github.io/my-site/` 即可。
+## 改文字
 
-### 方式二：命令行推送
+文字都在 HTML 里，用记事本或 VS Code 打开对应页面直接改：
 
-在本目录执行：
+- 首页大标题：`index.html` 里 `hero-title` 那一段
+- 产品卡片：`work.html` 里每个 `<article class="work">`，`<h3>` 是名字，`<p>` 是介绍，`<div class="meta">` 的两个 span 是分类标签
+- 联系方式：`contact.html` 里的电话、微信（159 0823 5538 / 15908235538），地址「四川省成都市」
+
+## 换图
+
+1. 把新图放进 `assets/`，同名覆盖即可，例如 `assets/p01.jpg`
+2. 要新增图位，在 `assets/style.css` 里按同类规则加一条
+3. 推荐尺寸：横图 1200×750，竖图 900×1200，JPEG 质量 80，单张 300KB 以内
+
+## 配色
+
+`assets/style.css` 顶部 `:root` 里改：
+
+```css
+--gold: #c8923f;   /* 主色，暖金 */
+--ink: #0b0705;    /* 底色，暗棕黑 */
+--text: #f0e9e1;   /* 正文 */
+```
+
+## 上传到 GitHub Pages
 
 ```bash
 git init
 git add .
-git commit -m "init personal site"
+git commit -m "update site"
 git branch -M main
-git remote add origin https://github.com/<你的用户名>/<仓库名>.git
+git remote add origin https://github.com/hgfhgghjv/personal-site.git
 git push -u origin main
 ```
 
-推送后再按上面第 3 步开启 Pages。
+仓库 Settings → Pages → Source 选 `main` / `(root)`，几十秒后访问
+`https://hgfhgghjv.github.io/personal-site/`。
 
-### 自定义域名（可选）
 
-在仓库根目录新建 `CNAME` 文件，内容写你的域名（如 `www.example.com`），再到域名服务商处把 CNAME 记录指向 `<用户名>.github.io`。
-
-## 注意
-
-- 根目录已放 `.nojekyll`，避免 GitHub Pages 用 Jekyll 处理文件时忽略某些目录。
-- 页面里的字体通过公共镜像加载，断网时自动回退到系统字体，布局不受影响。
-- 留言表单是纯前端方案，依赖访客本机邮件客户端；想收集表单数据需要接第三方表单服务（如 Formspree）。
