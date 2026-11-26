@@ -6,13 +6,10 @@
 
 | 文件 | 页面 | 内容 |
 |---|---|---|
-| `index.html` | 首页 | 首屏主张、四件稳定出品的事、六款代表作预览、出锅实拍 |
+| `index.html` | 首页 | 首屏主张、四件稳定出品的事、六款代表作预览、出锅实拍、厂区实拍视频、联系方式与合作方式 |
 | `work.html` | 产品 | 分 5 组共 24 款，每款配实物图与味型说明（不含规格参数） |
-| `life.html` | 应用 | 串串锅、红汤锅、牛蛙锅三个场景 + 门店常配食材 |
-| `about.html` | 工厂 | 厂区实拍视频（44 秒）、发酵工艺五道工序、原料看得见 |
-| `contact.html` | 合作 | 报样、批发、区域经销、OEM 代工 · 电话/微信 159 0823 5538 · 成都 |
 
-导航顺序统一为：首页 / 产品 / 应用 / 工厂 / 合作。
+全站只保留这两页，导航就是：首页 / 产品；工厂视频与联系信息放在首页最下方（锚点 `#contact`），产品页的「拿样试味」按钮跳到 `index.html#contact`。原来的 `life.html`、`about.html`、`contact.html` 已移到 `_archive/` 备份，不参与发布。
 
 ## 产品线（24 款）
 
@@ -22,7 +19,7 @@
 4. 其它产品 4 款：青花椒烤鱼料、麻辣香锅料、干锅小炒料、鲜毛肚（配套食材）
 5. 风味酱 6 款：XO 酱、菌王酱、牛肉酱、沙茶酱、香辣酱、蒜蓉酱
 
-统一卖点：**发酵工艺 · 久煮不浑汤 · 辣而不烧心**。首页四件事、产品页页头、工厂页第四道工序都落在这一点上。
+统一卖点：**发酵工艺 · 久煮不浑汤 · 辣而不烧心**。首页四件事、产品页页头、首页底部的厂区段落都落在这一点上。
 
 产品页不列净含量、装箱和配比数字，报价与参数走线下沟通。
 
@@ -47,7 +44,7 @@ ffmpeg -i 工厂视频.mp4 -vf scale=720:404 -c:v libx264 -preset slow -crf 29 -
 ## 目录
 
 ```
-index.html  work.html  life.html  about.html  contact.html
+index.html  work.html
 assets/     style.css  main.js  p01…p24.jpg  show-1…6.jpg  bg-*.jpg  food-*.jpg  raw-*.jpg
             factory-tour.mp4  factory-poster.jpg
 .nojekyll   README.md
@@ -61,7 +58,7 @@ assets/     style.css  main.js  p01…p24.jpg  show-1…6.jpg  bg-*.jpg  food-*.
 
 - 首页大标题：`index.html` 里 `hero-title` 那一段
 - 产品卡片：`work.html` 里每个 `<article class="work">`，`<h3>` 是名字，`<p>` 是介绍，`<div class="meta">` 的两个 span 是分类标签
-- 联系方式：`contact.html` 里的电话、微信（159 0823 5538 / 15908235538），地址「四川省成都市」
+- 联系方式：`index.html` 底部 `id="contact"` 那一段，电话、微信（159 0823 5538 / 15908235538），地址「四川省成都市」
 
 ## 换图
 
@@ -92,5 +89,6 @@ git push -u origin main
 
 仓库 Settings → Pages → Source 选 `main` / `(root)`，几十秒后访问
 `https://hgfhgghjv.github.io/personal-site/`。
+
 
 
